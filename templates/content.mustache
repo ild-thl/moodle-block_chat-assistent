@@ -1,0 +1,59 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_sidekick/content
+
+    TODO describe template content
+
+    Example context (json):
+    {
+    }
+}}
+
+
+<div class="block-sidekick">
+    <div class="sidekick-header">
+        <div class="dot">&#129517;</div> <!-- Compass -->
+        <h4>Lernassistent</h4> <!-- Block Title is h3 (with h5 class...) -->
+        <span class="beta">PROTOTYP</span>
+    </div>
+    <div class="sidekick-body">
+        <p class="assist-intro">Ich helfe dir, dich im Kurs zurechtzufinden. Frag mich etwas oder nutze die Schnellaktionen.</p>
+
+        <div class="chips">
+
+            {{> block_sidekick/chips/nextassignment }}
+            {{> block_sidekick/chips/announcements }}
+
+        </div>
+
+        {{> block_sidekick/assistantinput }}
+        <div class="assist-response" id="assistResponse"></div>
+
+        <div class="hint">z. B. „Wann sind meine nächsten Abgaben?"</div>
+    </div>
+</div>
+
+
+
+{{^element.frozen}}
+    {{#js}}
+        require(['block_sidekick/content'], function(js) {
+        js.entry({{courseid}});
+        });
+    {{/js}}
+{{/element.frozen}}
