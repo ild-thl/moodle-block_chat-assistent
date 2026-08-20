@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_sidekick';
 $plugin->release = '0.1.0';
-$plugin->version = 2026081703;
+$plugin->version = 2026082000;
 $plugin->requires = 2024100708;
 $plugin->dependencies = ['aiprovider_myai' => 2026042200];
 $plugin->maturity = MATURITY_ALPHA;

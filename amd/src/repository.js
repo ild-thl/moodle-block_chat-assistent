@@ -20,3 +20,12 @@ export const findIntentAI = (courseid, prompt, intents) => makeCalls([{
         intents: intents,
     },
 }])[0];
+
+export const sendPrompt = (courseid, prompt, intents) => makeCalls([{
+    methodname: 'block_sidekick_send_prompt',
+    args: {
+        courseid: courseid,
+        prompt: prompt,
+        intents: intents,
+    },
+}])[0];

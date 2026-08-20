@@ -21,6 +21,9 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+import {sendPrompt} from "block_sidekick/repository";
+import {intents, showResponse} from "block_sidekick/content";
+
 /**
  *
  * @param {int} courseid
@@ -51,6 +54,6 @@ async function handleChatbox(courseid, prompt) {
     if (prompt === "") {
         return;
     }
-    // let guessedIntent = await findIntentAI(courseid, prompt, [...intents.keys()]);
-    // await runIntent(guessedIntent[0],[courseid]);
+    let answer = await sendPrompt(courseid, prompt, [...intents.keys()]);
+    showResponse(answer);
 }
