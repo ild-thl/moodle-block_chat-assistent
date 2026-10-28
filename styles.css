@@ -22,19 +22,19 @@
 @keyframes block-sidekick-pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(255, 206, 58, 0);
-        background: #fff
+        background: #fff;
     }
     15% {
         box-shadow: 0 0 0 3px var(--highlight), 0 0 18px 4px rgba(255, 206, 58, .55);
-        background: #fff8e1
+        background: #fff8e1;
     }
     70% {
         box-shadow: 0 0 0 3px var(--highlight), 0 0 18px 4px rgba(255, 206, 58, .35);
-        background: #fff8e1
+        background: #fff8e1;
     }
     100% {
         box-shadow: 0 0 0 0 rgba(255, 206, 58, 0);
-        background: #fff
+        background: #fff;
     }
 }
 
@@ -67,18 +67,18 @@
 @keyframes block-sidekick-float {
     0% {
         opacity: 0;
-        transform: translateY(6px)
+        transform: translateY(6px);
     }
     12% {
         opacity: 1;
-        transform: translateY(0)
+        transform: translateY(0);
     }
     80% {
-        opacity: 1
+        opacity: 1;
     }
     100% {
         opacity: 0;
-        transform: translateY(-4px)
+        transform: translateY(-4px);
     }
 }
 
@@ -115,7 +115,7 @@
 
 .block-sidekick .sidekick-header .sidekick-heading {
     font-size: 15px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .block-sidekick .sidekick-header .beta {
@@ -131,20 +131,20 @@
 }
 
 .block-sidekick .sidekick-body {
-    padding: 14px 15px
+    padding: 14px 15px;
 }
 
 .block-sidekick .assist-intro {
     font-size: 13px;
     color: var(--mdl-muted);
-    margin-bottom: 12px
+    margin-bottom: 12px;
 }
 
 .block-sidekick .chips {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 14px
+    margin-bottom: 14px;
 }
 
 .block-sidekick .chip {
@@ -166,19 +166,19 @@
 
 .block-sidekick .chip:hover {
     border-color: var(--mdl-primary);
-    background: var(--assist-bg)
+    background: var(--assist-bg);
 }
 
 .block-sidekick .chip .c-ic {
-    font-size: 15px
+    font-size: 15px;
 }
 
-.block_sidekick_assistantinput form{
+.block-sidekick-assistantinput form{
     display: flex;
-    gap: 7px
+    gap: 7px;
 }
 
-.block_sidekick_assistantinput input {
+.block-sidekick-assistantinput input {
     flex: 1;
     border: 1px solid var(--mdl-border);
     border-radius: 8px;
@@ -189,12 +189,12 @@
     min-width: 0;
 }
 
-.block_sidekick_assistantinput input:focus {
+.block-sidekick-assistantinput input:focus {
     border-color: var(--mdl-primary);
-    box-shadow: 0 0 0 2px rgba(15, 108, 191, .15)
+    box-shadow: 0 0 0 2px rgba(15, 108, 191, .15);
 }
 
-.block_sidekick_assistantinput button {
+.block-sidekick-assistantinput button {
     background: var(--mdl-primary);
     color: #fff;
     border: none;
@@ -205,8 +205,8 @@
     transition: background .15s;
 }
 
-.block_sidekick_assistantinput button:hover {
-    background: var(--mdl-primary-dark)
+.block-sidekick-assistantinput button:hover {
+    background: var(--mdl-primary-dark);
 }
 
 .block-sidekick .assist-response {
@@ -222,21 +222,21 @@
 
 .block-sidekick .assist-response.show {
     display: block;
-    animation: fadeIn .25s ease
+    animation: fadeIn .25s ease;
 }
 
 .block-sidekick .assist-response strong {
-    color: var(--mdl-primary-dark)
+    color: var(--mdl-primary-dark);
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(3px)
+        transform: translateY(3px);
     }
     to {
         opacity: 1;
-        transform: none
+        transform: none;
     }
 }
 
@@ -245,7 +245,7 @@
     /*color: #9aa3ab; oo light on white bg*/
     color: #737387; /* About the minimum for WCAG AA, AAA = #575766*/
     margin-top: 10px;
-    text-align: center
+    text-align: center;
 }
 
 
