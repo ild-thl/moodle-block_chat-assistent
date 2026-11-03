@@ -17,15 +17,30 @@
 {{!
     @template block_sidekick/chips/announcements
 
-    TODO describe template announcements
+    Chip button template for viewing the latest announcement.
+    Displays a button that triggers the latest announcement intent.
+
+    Classes used:
+    - chip
+    - c-ic
+
+    Data attributes:
+    - None
+
+    Context variables required for this template:
+    - courseid: The course ID for the current context
 
     Example context (json):
     {
+        "courseid": 123
     }
+
+    Component: block_sidekick
+    File: templates/chips/announcements.mustache
 }}
 
 <button id="latestAnnouncement" class="chip">
-    <span class="c-ic">&#128226;</span> Aktuelle Ankündigung
+    <span class="c-ic" aria-hidden="true">&#128226;</span> {{#str}}latest_announcement, block_sidekick{{/str}}
 </button>
 
 {{^element.frozen}}

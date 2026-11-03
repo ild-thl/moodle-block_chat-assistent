@@ -17,22 +17,44 @@
 {{!
     @template block_sidekick/content
 
-    TODO describe template content
+    Main content template for the sidekick block.
+    Displays the learning assistant interface with header, introduction text, action chips, input field, and response area.
+
+    Classes used:
+    - block-sidekick
+    - sidekick-header
+    - sidekick-heading
+    - dot
+    - beta
+    - sidekick-body
+    - assist-intro
+    - chips
+    - assist-response
+    - hint
+
+    Data attributes:
+    - None
+
+    Context variables required for this template:
+    - None (uses language strings)
 
     Example context (json):
     {
     }
+
+    Component: block_sidekick
+    File: templates/content.mustache
 }}
 
 
 <div class="block-sidekick">
     <div class="sidekick-header">
-        <div class="dot">&#129517;</div> <!-- Compass -->
-        <h4 class="sidekick-heading">Lernassistent</h4> <!-- Block Title is h3 (with h5 class...) -->
-        <span class="beta">PROTOTYP</span>
+        <div class="dot" aria-hidden="true">&#129517;</div> <!-- Compass -->
+        <h4 class="sidekick-heading">{{#str}}pluginname, block_sidekick{{/str}}</h4> <!-- Block Title is h3 (with h5 class) -->
+        <span class="beta">{{#str}}beta_label, block_sidekick{{/str}}</span>
     </div>
     <div class="sidekick-body">
-        <p class="assist-intro">Ich helfe dir, dich im Kurs zurechtzufinden. Frag mich etwas oder nutze die Schnellaktionen.</p>
+        <p class="assist-intro">{{#str}}assistant_intro, block_sidekick{{/str}}</p>
 
         <div class="chips">
 
@@ -42,9 +64,9 @@
         </div>
 
         {{> block_sidekick/assistantinput }}
-        <div class="assist-response" id="assistResponse"></div>
+        <div class="assist-response" id="assistResponse" aria-live="polite" role="status"></div>
 
-        <div class="hint">z. B. „Wann sind meine nächsten Abgaben?"</div>
+        <div class="hint">{{#str}}input_hint, block_sidekick{{/str}}</div>
     </div>
 </div>
 

@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - https://moodle.org/
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,18 +12,15 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Plugin strings are defined here.
- *
- * @package     block_sidekick
- * @category    string
- * @copyright   2026 Your Name <you@example.com>
- * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-defined('MOODLE_INTERNAL') || die();
-
-$string['pluginname'] = 'Sidekick';
-$string['sidekick:addinstance'] = 'Addinstance';
+$string['pluginname'] = 'Lernassistent';
+$string['beta_label'] = 'PROTOTYP';
+$string['assistant_intro'] = 'Ich helfe dir, dich im Kurs zurechtzufinden. Frag mich etwas oder nutze die Schnellaktionen.';
+$string['input_hint'] = 'z. B. "Wann sind meine nächsten Abgaben?"';
+$string['next_assignment'] = 'Nächste Abgaben';
+$string['latest_announcement'] = 'Aktuelle Ankündigung';
+$string['input_label'] = 'Frage eingeben';
+$string['input_placeholder'] = 'Frag mich etwas …';
+$string['send_button'] = 'Senden';
+$string['error_required'] = 'Bitte geben Sie eine Frage ein.';

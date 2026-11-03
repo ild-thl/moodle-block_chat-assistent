@@ -17,15 +17,30 @@
 {{!
     @template block_sidekick/chips/nextassignment
 
-    TODO describe template content
+    Chip button template for navigating to the next assignment.
+    Displays a button that triggers the next assignment intent.
+
+    Classes used:
+    - chip
+    - c-ic
+
+    Data attributes:
+    - None
+
+    Context variables required for this template:
+    - courseid: The course ID for the current context
 
     Example context (json):
     {
+        "courseid": 123
     }
+
+    Component: block_sidekick
+    File: templates/chips/nextassignment.mustache
 }}
 
 <button id="nextAssignment" class="chip" >
-    <span class="c-ic">&#128197;</span> Nächste Abgaben
+    <span class="c-ic" aria-hidden="true">&#128197;</span> {{#str}}next_assignment, block_sidekick{{/str}}
 </button>
 
 

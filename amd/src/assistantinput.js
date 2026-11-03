@@ -25,22 +25,44 @@ import {sendPrompt} from "block_sidekick/repository";
 import {intents, showResponse} from "block_sidekick/content";
 
 /**
+ * Handles form validation and submission for the assistant input.
  *
  * @param {int} courseid
  * @returns {Promise<void>}
  */
 export async function entry(courseid) {
+    const form = document.getElementById('sidekickAssistantForm');
+    const input = document.getElementById('assistField');
+    const errorSpan = document.getElementById('assistFieldError');
 
-    //registerIntent('handleChatbox', ["chatbox"], handleChatbox);
-    //registerIntent('guessIntent', ['intents'], guessIntent);
-
-    document.getElementById('assistField').form.addEventListener('submit', (event) => {
+    // Form submission handler with validation
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const form = event.currentTarget;
-        const message = form.assistField.value;
+        const message = input.value.trim();
+
+        // Validate input
+        if (!message) {
+            // Show error
+            input.setAttribute('aria-invalid', 'true');
+            errorSpan.classList.remove('hidden');
+            input.focus();
+            return;
+        }
+
+        // Clear any existing error
+        input.setAttribute('aria-invalid', 'false');
+        errorSpan.classList.add('hidden');
 
         handleChatbox(courseid, message);
+    });
+
+    // Clear error when user starts typing
+    input.addEventListener('input', () => {
+        if (input.value.trim()) {
+            input.setAttribute('aria-invalid', 'false');
+            errorSpan.classList.add('hidden');
+        }
     });
 }
 

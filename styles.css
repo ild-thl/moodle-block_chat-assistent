@@ -2,8 +2,9 @@
     --mdl-primary: #0f6cbf;
     --mdl-primary-dark: #0a5499;
     --mdl-bg: #f7f8fa;
-    --mdl-card: #ffffff;
-    --mdl-border: #dee2e6;
+    --mdl-card: #fff;
+    --mdl-border-control: #909395;
+    --mdl-border-decorative: #dee2e6;
     --mdl-text: #1d2125;
     --mdl-muted: #6a737b;
     --mdl-link: #0f6cbf;
@@ -85,19 +86,22 @@
 /* ---------- Block-Plugin (Lernassistent) ---------- */
 .block-sidekick {
     background: var(--mdl-card);
-    border: 1px solid var(--mdl-border);
+    border: 1px solid var(--mdl-border-decorative);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .block-sidekick .sidekick-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 9px;
     padding: 13px 15px;
     background: var(--assist-bg);
-    border-bottom: 1px solid #d6e6f5;
+    border-bottom: 1px solid var(--mdl-border-decorative);
 }
 
 .block-sidekick .sidekick-header .dot {
@@ -124,7 +128,7 @@
     letter-spacing: .5px;
     background: #fff;
     color: var(--mdl-primary);
-    border: 1px solid #bcd9f2;
+    border: 1px solid var(--mdl-primary);
     border-radius: 4px;
     padding: 1px 5px;
     margin-left: auto;
@@ -151,7 +155,7 @@
     text-align: left;
     width: 100%;
     background: #fff;
-    border: 1px solid var(--mdl-border);
+    border: 1px solid var(--mdl-border-control);
     border-radius: 8px;
     padding: 10px 12px;
     font-family: inherit;
@@ -161,7 +165,7 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    transition: all .15s;
+    transition: background .15s;
 }
 
 .block-sidekick .chip:hover {
@@ -173,25 +177,26 @@
     font-size: 15px;
 }
 
-.block-sidekick-assistantinput form{
+.block-sidekick-assistantinput form {
     display: flex;
     gap: 7px;
 }
 
 .block-sidekick-assistantinput input {
     flex: 1;
-    border: 1px solid var(--mdl-border);
+    border: 1px solid var(--mdl-border-control);
     border-radius: 8px;
     padding: 9px 11px;
     font-family: inherit;
     font-size: 13.5px;
     outline: none;
     min-width: 0;
+    transition: background .15s;
 }
 
 .block-sidekick-assistantinput input:focus {
-    border-color: var(--mdl-primary);
-    box-shadow: 0 0 0 2px rgba(15, 108, 191, .15);
+    outline: 2px solid var(--mdl-primary);
+    outline-offset: 2px;
 }
 
 .block-sidekick-assistantinput button {
@@ -199,7 +204,7 @@
     color: #fff;
     border: none;
     border-radius: 8px;
-    width: 40px;
+    min-width: 48px;
     cursor: pointer;
     font-size: 16px;
     transition: background .15s;
@@ -209,6 +214,11 @@
     background: var(--mdl-primary-dark);
 }
 
+.block-sidekick-assistantinput button:focus {
+    outline: 2px solid var(--mdl-primary);
+    outline-offset: 2px;
+}
+
 .block-sidekick .assist-response {
     margin-top: 13px;
     font-size: 13px;
@@ -216,7 +226,7 @@
     background: var(--assist-bg);
     border-radius: 8px;
     padding: 11px 12px;
-    border: 1px solid #d6e6f5;
+    border: 1px solid var(--mdl-border-decorative);
     display: none;
 }
 
@@ -227,6 +237,12 @@
 
 .block-sidekick .assist-response strong {
     color: var(--mdl-primary-dark);
+}
+
+.block-sidekick .error-message {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
 }
 
 @keyframes fadeIn {
@@ -243,19 +259,35 @@
 .block-sidekick .hint {
     font-size: 11.5px;
     /*color: #9aa3ab; oo light on white bg*/
-    color: #737387; /* About the minimum for WCAG AA, AAA = #575766*/
+    color: #575766;
     margin-top: 10px;
     text-align: center;
 }
 
 
 /* From: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html*/
-.block-sidekick .visually-hidden:not(:focus):not(:active) {
+.block-sidekick .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
-    width: 1px;
+}
+
+.block-sidekick .chip:focus {
+    outline: 2px solid var(--mdl-primary);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .block-sidekick-highlight,
+    .block-sidekick-callout,
+    .assist-response {
+        animation: none !important;
+    }
 }

@@ -15,21 +15,40 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template block_sidekick/chips/textinput
+    @template block_sidekick/assistantinput
 
-    TODO describe template textinput
+    Input form template for the sidekick block.
+    Contains the text input field and submit button for user prompts.
+
+    Classes used:
+    - block-sidekick-assistantinput
+
+    Data attributes:
+    - None
+
+    Context variables required for this template:
+    - courseid: The course ID for the current context
 
     Example context (json):
     {
+        "courseid": 123
     }
+
+    Component: block_sidekick
+    File: templates/assistantinput.mustache
 }}
 
-<div class="block_sidekick_assistantinput">
-    <form>
-        <label for="assistField" class="visually-hidden">Promptinput</label>
-        <input type="text" required id="assistField" placeholder="Frag mich etwas …">
-        <button type="submit" id="assistFieldButton" aria-label="Senden"><span aria-hidden="true">&#10148;</span></button>
+<div class="block-sidekick-assistantinput">
+    <form id="sidekickAssistantForm">
+        <label for="assistField" class="visually-hidden">{{#str}}input_label, block_sidekick{{/str}}</label>
+        <input type="text" id="assistField"
+               placeholder="{{#str}}input_placeholder, block_sidekick{{/str}}"
+               aria-required="true"
+               aria-describedby="assistFieldError"
+               aria-invalid="false">
+        <button type="submit" id="assistFieldButton" aria-label="{{#str}}send_button, block_sidekick{{/str}}"><span aria-hidden="true">&#10148;</span></button>
     </form>
+    <span id="assistFieldError" class="error-message hidden" role="alert">{{#str}}error_required, block_sidekick{{/str}}</span>
 </div>
 
 {{^element.frozen}}
